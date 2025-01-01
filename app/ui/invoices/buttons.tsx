@@ -13,7 +13,7 @@ export function CreateInvoice() {
   );
 }
 
-export function UpdateInvoice({ id }: { id: string }) {
+export function UpdateInvoice() {
   return (
     <Link
       href="/dashboard/invoices"
