@@ -24,17 +24,19 @@ export default async function RevenueChart() { // Make component async, remove t
 
 
       <div className="rounded-xl bg-gray-50 p-4">
-        <div className="sm:grid-cols-13 mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 md:gap-4">
+        <div className="sm:grid-cols-12 mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 md:gap-4">
+        {/* 
           <div className="mb-6 hidden flex-col justify-between text-sm text-gray-400 sm:flex" style={{ height: `${chartHeight}px` }}  >
             {yAxisLabels.map((label) => (
               <p key={label}>{label}</p>
             ))}
           </div>
-
-          {revenue.map((month) => (
-            <div key={month.month} className="flex flex-col items-center gap-2">
-              <div className="w-full rounded-md bg-blue-300" style={{ height: `${(chartHeight / topLabel) * month.revenue}px`, }}  ></div>
-              <p className="-rotate-90 text-sm text-gray-400 sm:rotate-0">  {month.month}  </p>
+*/}
+          {revenue.map((data) => (
+            <div key={data.month} className="flex flex-col items-center gap-2">
+              <span className='text-blue-600'>${data.revenue}</span>
+              <div className="w-full rounded-md bg-blue-300" style={{ height: `${(chartHeight / topLabel) * data.revenue}px`, }}  ></div>
+              <p className="-rotate-90 text-sm text-gray-400 sm:rotate-0">  {data.month}  </p>
             </div>
           ))}
         </div>
