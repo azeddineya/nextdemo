@@ -6,9 +6,7 @@ export const metadata: Metadata = {
     title: 'Customers',
 };
 
-export default async function Page(props: {
-    searchParams?: Promise<{ query?: string; page?: string; }>;
-}) {
+export default async function Page(props: {searchParams?: Promise<{ query?: string; page?: string; }>;}) {
     const searchParams = await props.searchParams;
     const query = searchParams?.query || '';
 

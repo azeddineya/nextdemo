@@ -8,7 +8,6 @@ import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
 
 
-
 export type State = {
     errors?: {
         customerId?: string[];
@@ -16,6 +15,7 @@ export type State = {
         status?: string[];
     };
     message?: string | null;
+    //formData: FormData
 };
 
 const FormSchema = z.object({
@@ -77,7 +77,7 @@ export async function updateInvoice(id: string, formData: FormData) {
     try {
         await sql`UPDATE invoices SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}WHERE id = ${id}`;
     } catch (error) {
-        return { message: 'Database Error: Failed to Update Invoice.' };
+        //return { message: 'Database Error: Failed to Update Invoice.' };
     }
 
     revalidatePath('/dashboard/invoices');
